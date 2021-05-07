@@ -1,0 +1,43 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Entana{% endblock %}
+
+{% block body %}
+
+    <div class="col"><h1>Entana</h1>
+        <table class="table">
+<tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entana.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre_produit</th>
+                <td>{{ entana.titreProduit }}</td>
+            </tr>
+
+                <th>Sary</th>
+                <td><img style="width: 165px;margin:auto;" src="uploads/{{entana.sary}}"></td>
+
+            <tr>
+                <th>Vidiny</th>
+                <td>{{ entana.vidiny }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entana.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+     <a href="{{ path('entana_index') }}">back to list</a>
+
+    <a href="{{ path('entana_edit', {'id': entana.id}) }}">edit</a>
+
+    {{ include('entana/_delete_form.html.twig') }}
+
+  </div>
+    
+
+    
+
+{% endblock %}

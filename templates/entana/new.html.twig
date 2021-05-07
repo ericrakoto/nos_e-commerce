@@ -1,0 +1,15 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Entana{% endblock %}
+
+{% block body %}
+    <div class="col"><h1>Create new Entana</h1>
+      <div>
+        {{ include('entana/_form.html.twig') }}
+
+    <a href="{{ path('entana_index') }}">back to list</a>
+      </div>
+    </div>
+
+    
+{% endblock %}

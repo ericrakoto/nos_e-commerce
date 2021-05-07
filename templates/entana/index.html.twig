@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Entana index{% endblock %}
+
+{% block body %}
+
+    <div class="col">  <h1>Entana index</h1>
+       <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre_produit</th>
+                <th>Sary</th>
+                <th>Vidiny</th>
+                <th>Description</th>
+                <th>actions</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        {% for entana in entanas %}
+        <tbody>
+        
+            <tr>
+                <td>{{ entana.id }}</td>
+                <td>{{ entana.titreProduit }}</td>
+                <td><img style="width: 70px;margin:auto;" src="uploads/{{entana.sary}}"></td>
+                <td>{{ entana.vidiny }}</td>
+                <td>{{ entana.description }}</td>
+                <td> <div class="center"></div> <input type="checkbox" name="activation"> </td>
+                <td>
+                    <a class="btn btn-outline-primary" href="{{ path('entana_show', {'id': entana.id}) }}">show</a>
+                    <a class="btn btn-outline-primary" href="{{ path('entana_edit', {'id': entana.id}) }}">
+                    <i class="fas fa-pencil-alt"></i>edit</a>
+                    <a class="btn btn-outline-primary">
+                    {{ include('entana/_delete_form.html.twig') }}</a>
+                </td>
+            </tr>
+
+        
+        </tbody>
+        {% endfor %}
+    </table>
+
+    <a class="btn btn-outline-primary" href="{{ path('entana_new') }}">Create new</a>
+      </div>
+
+  
+
+   
+{% endblock %}

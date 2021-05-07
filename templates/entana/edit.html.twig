@@ -1,0 +1,22 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Entana{% endblock %}
+
+{% block body %}
+    
+
+    
+
+
+	    <div class="col"><h1>Edit Entana</h1>
+	      <div>
+	       {{ include('entana/_form.html.twig', {'button_label': 'Update'}) }}
+
+	    <a href="{{ path('entana_index') }}">back to list</a>
+
+	    {{ include('entana/_delete_form.html.twig') }}
+	      </div>
+	    </div>
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+.carousse{
+  width: 100%;
+  height: 400px;
+}
+.btn-vidio {
+  color: #ffc820;
+  border-color: #ffc820;
+  background-color: #fff;
+}
+.btn-vidio:hover {
+  color: #fff;
+  background-color: #ffc820;
+  border-color: #ffc820;
+  transform:scale(1.1);
+}
+
+.btn-vidio:disabled, .btn-vidio.disabled {
+  color: #fff;
+  background-color: transparent;
+}
+
+.btn-vidio:focus{
+box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
+}
+
+.tot{
+	color: #0d6efd;
+  	border-color: #0d6efd;
+  	border-radius: 50%;
+}
+
+.panier{
+	color: #0d6efd;
+  	border-color: #0d6efd;
+  	border-radius: 5px;
+}
+.panier:hover{
+  color: #fff;
+    border-color: #fff;
+    border-radius: 5px;
+}
+
+.sary{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.entana img:hover{
+transform:scale(1.1);
+}
+
+.btn-tsindrio {
+  color: #ffc820;
+  border-color: #ffc820;
+}
+.btn-tsindrio:hover {
+  color: #fff;
+  background-color: #ffc820;
+  border-color: #ffc820;
+}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello PanierController!{% endblock %}
+{% block body %}
+<div class="jumbotron">
+    {% if items | length >0 %}
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>entana</th>
+    			<th>vidiny</th>
+    			<th>quantite</th>
+                <th class="text-center">Total</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		{% for item in items %}
+
+        	<tr>
+    			<td>{{ item.entana.titreProduit }}</td>
+    			<td>{{ item.entana.vidiny }} Ariary</td>
+    			<td>{{ item.quantite }}</td>
+    			<td class="text-center">{{ item.entana.vidiny*item.quantite }} Ariary</td>
+                <td class="text-center"><a class="del" href="{{path('adm_panier_del',{'id': item.entana.id})}}">
+          <button type="button" class="btn-mamafa" style="padding: 0.5rem 1rem;
+          font-size: 1.25rem;
+          border-radius: 0.3rem;">Manena</button>
+      </a></td>
+      <td class="text-center"><a class="del" href="{{path('adm_panier_delTotal',{'id': item.entana.id})}}">
+          <button type="button" class="btn-danger" style="padding: 0.5rem 1rem;
+          font-size: 1.25rem;
+          border-radius: 0.3rem;">
+          <i class="fas fa-trash"></i> Mamafa</button>
+      </a></td>
+    		</tr>
+    		{% endfor %}
+    	</tbody>     
+        <tfoot>            
+            <tr>
+                <td colspan="2" class="text-right">Total:</td>
+                <td>{{totalQuantite}}</td>
+                <td class="text-center">Total: {{total}} Ariary</td>
+                <td class="text-center"><a class="del" href="{{path('adm_payer')}}">
+                <button type="button" class="btn-payer" style="padding: 0.5rem 1rem;
+                font-size: 1.25rem;
+                border-radius: 0.3rem;">Payer</button>
+      </a></td>
+            </tr>
+        </tfoot>
+    </table>
+    {% else %}
+    <h1> Mbola tsy nividy </h1>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('entana_delete', {'id': entana.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entana.id) }}">
+   <button type="submit" style="border: 0px; background-color: #fff; b">
+	<i class="fas fa-trash">
+     </i> Delete </button>
+</form>

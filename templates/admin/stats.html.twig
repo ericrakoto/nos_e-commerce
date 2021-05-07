@@ -1,0 +1,60 @@
+{% extends 'admin.html.twig' %}
+ {% block body %}
+
+ 
+      <div class="col">
+        <h1>Liste des categories les plus vendues</h1>
+        <div class="toera">
+          <canvas id="category" width="400" height="400"></canvas>
+        </div>
+      </div>
+      <div class="col">
+        <h1>Liste des produits vendues par date</h1>
+        <div class="toera">
+          <canvas id="old" width="400" height="400"></canvas>
+        </div>
+      </div>
+
+{% endblock %}
+
+
+
+  {% block javascripts %}
+          <script src="{{asset('js/jquery-3.5.1.js')}}"></script>
+      <script src="{{asset('js/bootstrap.js')}}"></script>
+      <script src="{{asset('js/glm-ajax.js')}}"></script>
+<script src="{{asset('js/Chart.min.js')}}"></script>
+<script type="text/javascript">
+  let category = document.querySelector('#category');
+  let cateGraph = new Chart(category,{
+    type : "pie",
+    data : 
+            {
+              /*labels : ["cat1","cat2","cat3"],*/
+              labels : {{ categNom|raw }},
+              datasets : [{
+                label : "listes des categories les plus vendus",
+                /*data : [2,3,7],*/
+                data : {{ categQuant|raw }},
+                backgroundColor: {{ categCouleur|raw }}
+              }]
+            }
+  })
+
+  let old = document.querySelector('#old');
+  let oldGraph = new Chart(old,{
+    type : "bar",
+    data : 
+            {
+              /*labels : ["cat1","cat2","cat3"],*/
+              labels : {{ date|raw }},
+              datasets : [{
+                label : "quantités produits vendus par jours",
+                /*data : [2,3,7],*/
+                data : {{ entQuant|raw }},
+                backgroundColor: {{ categCouleur|raw }}
+              }]
+            }
+  })
+</script>
+        {% endblock %}
